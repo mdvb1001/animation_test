@@ -15,37 +15,42 @@ body{
   display: block;
   background-color: #333;
   padding: 10px;
+  display: inline-block;
 }
 #logo-one {
-  position: absolute;
-  width: 100%;
+  vertical-align: middle;
+  position: relative;
+  /*margin-left: 316px;*/
+  width: 240px;
   height: 100%;
   background: url(img/logo.jpg) no-repeat;
 }
 #logo-two {
-  position: absolute;
-  left: 632px;
-  width: 100%;
+  position: relative;
+  /*margin-left: 316px;*/
+  width: 240px;
   height: 100%;
   background: url(img/logo.jpg) no-repeat;
 }
 #title {
-  position: relative;
-  text-align: center;
-  width: 100%;
+  position: absolute;
+  width: 580px;
   height: 100%;
   background: url(img/title.jpg) no-repeat;
   opacity: 0;
+  margin: 0 auto;
 }
 </style>
 </head>
 
 <body>
 <div class="container">
+<div class="row">
 <div id="demo" class="col-xs-12">
-  <div id="logo-one"></div>
-  <div id="logo-two"></div>
-  <div id="title" class="text-center"></div>
+  <div id="logo-one" class="col-xs-4 pull-left"></div>
+  <div id="logo-two" class="col-xs-4 pull-right"></div>
+  <div id="title" class="col-xs-4"></div>
+</div>
 </div>
 </div>
 <!--- The following scripts are necessary to do TweenLite tweens on CSS properties -->
@@ -54,13 +59,13 @@ body{
 
 
 <script>
-//we'll use a window.onload for simplicity, but typically it is best to use either jQuery's $(document).ready() or $(window).load() or cross-browser event listeners so that you're not limited to one.
+// we'll use a window.onload for simplicity, but typically it is best to use either jQuery's $(document).ready() or $(window).load() or cross-browser event listeners so that you're not limited to one.
 window.onload = function(){
   var logo_one = document.getElementById("logo-one");
   var logo_two = document.getElementById("logo-two");
-  TweenLite.to(logo_one, 4, {left:"316px"});
-  TweenLite.to(logo_two, 4, {left:"316px"});
-  TweenLite.to([logo_one, logo_two], 0, {opacity: 0, delay: 4});
+  TweenLite.to(logo_one, 4, {left:"700px", delay: 1});
+  TweenLite.to(logo_two, 4, {right:"700px", delay: 1});
+  TweenLite.to([logo_one, logo_two], 3, {opacity: 0, delay: 1});
   TweenLite.to(title, 2, {opacity: 1, delay: 4});
 };
 </script>
